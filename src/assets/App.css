@@ -1,0 +1,100 @@
+.App {
+    text-align: center;
+  }
+  
+  .main {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    color: white;
+  }
+
+  .header-wrapper{ 
+    padding-top: 10%;
+    padding-bottom: 3%;
+  }
+
+  /*
+    header block
+  */
+  .header{ 
+    background-color: 282c34;
+    min-height: 15vh;
+    border: 1px solid white;
+  }
+  
+  /*
+    greeting element
+  */
+  .header__greeting{
+    color: red;
+    border: 1px dashed pink;
+  }
+
+  /*
+    input element
+  */
+  .header__input{
+    font-family: sans-serif;
+    padding: 5px;
+    border: 1px solid pink;
+    border-radius: 5px;
+
+  }
+
+  .projects-wrapper{ 
+    width: fit-content; 
+    /* or 18% */
+    /* max-width: 50%; */
+  }
+
+  /*
+    projects-wrapper
+  */
+  .projects{
+    /* background-color: blue; */
+    min-height: 50vh;
+    /* border: 1px solid black; */
+    border: 0.75em solid;
+  }
+
+  /*
+    projects header element
+  */
+  .projects-header{
+    color: red;
+    border: 1px dashed pink;
+    text-align: left;
+  }
+
+
+  /*
+    projects block
+  */
+  .projects-block{
+    border: 1px solid  #f0f;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* center for the whole screen */
+    justify-content: center; 
+    /* space-between for a half of the screen */
+    /* justify-content: space-between;  */
+  }
+  
+   /*
+    projects block > square element
+  */
+  .projects-block__square{
+    border: solid 1px #f0f;
+    margin: 3px;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+    /* commented out to render on half */
+    /* flex: 1 1 0%; */
+  }
+
