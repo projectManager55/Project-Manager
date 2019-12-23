@@ -8,7 +8,6 @@ class Dashboard extends React.Component {
     this.state = {
       projectName: '',
       projects: props.projects,
-      isItemSelected: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -45,7 +44,8 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { projectName, projects, isItemSelected } = this.state;
+    const { projectName, projects } = this.state;
+    const { isItemSelected } = this.props;
     const projectsList = this.renderProjects(projects);
     return (
       <div className={!isItemSelected ? 'active-window' : 'active-window_project-selected'}>
@@ -65,12 +65,12 @@ class Dashboard extends React.Component {
             />
           </div>
         </div>
-        <div className="projects-wrapper">
+        <div className={!isItemSelected ? 'projects-wrapper' : 'projects-wrapper_project-selected'}>
           <div className="projects">
             <div className="projects-header">
               <p>{`Projects(${projects.length})`}</p>
             </div>
-            <div className="projects-block">
+            <div className={!isItemSelected ? 'projects-block' : 'projects-block_project-selected'}>
               {projectsList}
             </div>
           </div>
