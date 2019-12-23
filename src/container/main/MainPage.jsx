@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../assets/App.css';
-import { projects } from '../../dummyData/dummyData';
+import { projects, events } from '../../dummyData/dummyData';
 import Dashboard from '../dashboard/Dashboard';
 import ProjectDetails from '../projectDetails/ProjectDetails';
 
@@ -12,6 +12,8 @@ class MainPage extends React.Component {
     this.state = {
       localProjects: projects,
       isItemSelected: false,
+      events,
+      projectId: '',
     };
   }
 
@@ -21,20 +23,26 @@ class MainPage extends React.Component {
         p.selected = p.id === id;
         return p;
       });
+      const projectName = prevState.localProjects.find((p) => p.id === id).name;
       return {
         localProjects: nProjects,
         isItemSelected: true,
+        events: prevState.events,
+        projectId: id,
+        projectName,
       };
     });
   }
 
 
   render() {
-    const { localProjects, isItemSelected } = this.state;
+    const {
+      localProjects, isItemSelected, events: nEvents, projectId, projectName,
+    } = this.state;
     return (
       <div className="main">
-        <Dashboard projects={localProjects} selectItem={this.selectItem} />
-        {!isItemSelected ? null : <ProjectDetails projects={localProjects} selectItem={this.selectItem} isItemSelected={isItemSelected} />}
+        <Dashboard projects={localProjects} selectItem={this.selectItem} isItemSelected={isItemSelected} />
+        {!isItemSelected ? null : <ProjectDetails events={nEvents} projectName={projectName} isItemSelected={isItemSelected} projectId={projectId} />}
       </div>
     );
   }
