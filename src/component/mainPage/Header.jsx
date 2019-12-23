@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import '../../assets/App.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -12,9 +12,11 @@ class Header extends React.Component {
   }
 
   handleChange = (e) => {
+    const { searchProjectByName } = this.props;
     this.setState({
       [e.target.name]: e.target.value,
     });
+    searchProjectByName(e.target.value);
   }
 
   render() {
